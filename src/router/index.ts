@@ -4,23 +4,65 @@ import Home from "../views/Home.vue";
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
-    name: "Home",
-    component: Home
+    redirect: { name: "Home" },
   },
   {
-    path: "/about",
-    name: "About",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
+    path: "/home",
+    name: "Home",
+    component: Home,
+    children: [
+      {
+        path: "",
+        redirect: { name: "Normal" },
+      },
+      {
+        path: "normal",
+        name: "Normal",
+        component: () => import("../views/Normal.vue"),
+      },
+      {
+        path: "composition",
+        component: () => import("../views/Composition.vue"),
+      },
+    ],
+  },
+  {
+    path: "/refs",
+    name: "Refs",
+    component: () => import("../views/CustomRefs.vue"),
+  },
+  {
+    path: "/router/:id",
+    name: "Router",
+    props: true,
+    component: () => import("../views/CustomRouter.vue"),
+  },
+  {
+    path: "/vuex",
+    name: "Vuex",
+    component: () => import("../views/CustomVuex.vue"),
+  },
+  {
+    path: "/lifecycle",
+    name: "Lifecycle",
+    component: () => import("../views/CustomLifecycle.vue"),
+  },
+  {
+    path: "/watch",
+    name: "Watch",
+    component: () => import("../views/CustomWatch.vue"),
+  },
+  {
+    path: "/input",
+    name: "Input",
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue")
-  }
+      import(/* webpackChunkName: "input" */ "../views/CustomInput.vue"),
+  },
 ];
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
-  routes
+  routes,
 });
 
 export default router;
