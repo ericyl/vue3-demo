@@ -1,5 +1,5 @@
 <template>
-  <MultiInput v-model:selected="form.selected" v-model:value.capitalize="form.value" />
+  <MultiInput v-model:selected="form.selected" v-model:value.capitalize="form.value" class="test" />
   <p>{{ form }}</p>
   <SingleInput v-model="value" />
 </template>

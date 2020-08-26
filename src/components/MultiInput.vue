@@ -1,16 +1,14 @@
 <template>
-  <div>
-    <select @change="$emit('update:selected', $event.target.value)">
-      <option value>-</option>
-      <option
-        v-for="item of selectData"
-        :key="item"
-        :value="item"
-        :selected="item == selected"
-      >{{ item }}</option>
-    </select>
-    <input type="text" :value="value" v-bind="{ ...$attrs, onInput: input }" />
-  </div>
+  <select @change="$emit('update:selected', $event.target.value)">
+    <option value>-</option>
+    <option
+      v-for="item of selectData"
+      :key="item"
+      :value="item"
+      :selected="item == selected"
+    >{{ item }}</option>
+  </select>
+  <input type="text" :value="value" v-bind="{ ...$attrs, onInput: input }" />
 </template>
 
 <script lang="ts">
