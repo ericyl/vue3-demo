@@ -24,8 +24,9 @@ api.interceptors.response.use(
     let message = "未知错误";
     if (error.response && error.response.data) {
       const responseData = error.response.data;
-      message = responseData.message;
+      message = responseData.msg;
       const code = responseData.code;
+      console.log(`${code}->${message}`);
     } else if (error.message) message = error.message;
     return Promise.reject(message);
   }
