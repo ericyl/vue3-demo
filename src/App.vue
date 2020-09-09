@@ -8,6 +8,8 @@
       <router-link to="/lifecycle">Lifecycle hooks</router-link>
       <router-link to="/watch">Watch</router-link>
       <router-link to="/input">Input</router-link>
+      <router-link to="/mitt">Mitt</router-link>
+      <router-link to="/api">Api</router-link>
     </div>
     <router-view />
   </div>

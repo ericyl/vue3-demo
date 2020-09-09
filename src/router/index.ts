@@ -58,6 +58,16 @@ const routes: Array<RouteRecordRaw> = [
     component: () =>
       import(/* webpackChunkName: "input" */ "../views/CustomInput.vue"),
   },
+  {
+    path: "/mitt",
+    name: "mitt",
+    component: () => import("../views/Mitt.vue"),
+  },
+  {
+    path: "/api",
+    name: "api",
+    component: () => import("../views/Api.vue"),
+  },
 ];
 
 const router = createRouter({
